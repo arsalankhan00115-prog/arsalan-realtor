@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QEC School Usia | Modern 3D Campus & Quality CBSE Education</title>
+  <meta name="description" content="Official website of QEC School, Usia, Ghazipur, U.P. Affiliated to CBSE (Aff. No: 2134644). Managed by Sir Syed Educational and Social Welfare Foundation. Owners: MD Perwez Khan, Aarif Khan.">
+  <meta name="keywords" content="QEC School, QEC School Usia, QEC Ghazipur, MD Perwez Khan, Aarif Khan, CBSE School Ghazipur, Admissions 2026-27">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Style Sheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Import Three.js & OrbitControls via ESM -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- SVG Liquid Filter Definition for Liquid UI Buttons -->
+  <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="liquid-goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+      <filter id="liquid-goo-intense">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -12" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Ambient Animated Background Grid -->
+  <div class="bg-ambient-lights">
+    <div class="light-orb orb-1"></div>
+    <div class="light-orb orb-2"></div>
+    <div class="light-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-left">
+        <span class="pulse-badge"><span class="pulse-dot"></span> ADMISSIONS OPEN 2026–27</span>
+        <span class="announcement-text">Nursery to IX & XI | Science, Commerce & Humanities | CBSE Affiliation No: 2134644</span>
+      </div>
+      <div class="announcement-right">
+        <a href="tel:+919044970443" class="top-link"><i class="fa-solid fa-phone"></i> +91 9044970443</a>
+        <span class="sep">|</span>
+        <a href="mailto:qecusia@gmail.com" class="top-link"><i class="fa-solid fa-envelope"></i> qecusia@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header class="main-header" id="navbar">
+    <div class="container header-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-emblem">
+          <div class="logo-ring"></div>
+          <!-- Official School Logo Image -->
+          <img src="images/logo.png" alt="QEC School Usia Logo" class="official-logo-img">
+        </div>
+        <div class="brand-text">
+          <span class="school-title">QEC SCHOOL</span>
+          <span class="school-sub">USIA, GHAZIPUR (CBSE)</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#profile" class="nav-link">School Profile</a>
+        <a href="#campus-3d" class="nav-link">3D Campus</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#leadership" class="nav-link">Leadership</a>
+        <a href="#academics" class="nav-link">Academics</a>
+        <a href="#liquid-demo" class="nav-link">Liquid UI</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Liquid UI Button Component -->
+        <button class="liquid-btn" id="openAdmissionBtn" aria-label="Apply Now for Admission">
+          <span class="liquid-btn-bg"></span>
+          <span class="liquid-btn-blobs">
+            <span class="blob"></span>
+            <span class="blob"></span>
+            <span class="blob"></span>
+          </span>
+          <span class="liquid-btn-text">
+            <i class="fa-solid fa-paper-plane"></i> Apply Now 2026
+          </span>
+          <span class="liquid-btn-sparkle"></span>
+        </button>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-pill-badge">
+          <i class="fa-solid fa-graduation-cap"></i> Motivation Towards Education
+        </div>
+        <h1 class="hero-title">
+          Building Brighter Futures at <span class="gradient-text">QEC School</span>
+        </h1>
+        <p class="hero-description">
+          Welcome to Q.E.C. School, Usia — Managed by <strong>Sir Syed Educational and Social Welfare Foundation</strong>. Offering world-class CBSE education, experienced faculty, modern labs, and an inspiring learning environment.
+        </p>
+
+        <div class="hero-cta-group">
+          <!-- Main Liquid UI Button -->
+          <a href="#campus-3d" class="liquid-btn liquid-btn-lg">
+            <span class="liquid-btn-bg"></span>
+            <span class="liquid-btn-blobs">
+              <span class="blob"></span>
+              <span class="blob"></span>
+              <span class="blob"></span>
+            </span>
+            <span class="liquid-btn-text">
+              <i class="fa-solid fa-cube"></i> Explore 3D Campus
+            </span>
+          </a>
+
+          <button class="glass-btn" id="heroInquireBtn">
+            <i class="fa-solid fa-clipboard-list"></i> Admission Inquiry
+          </button>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <strong>CBSE Curriculum</strong>
+              <span>Aff. No: 2134644</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <div>
+              <strong>Classes Offered</strong>
+              <span>Nursery to IX & XI</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <i class="fa-solid fa-language"></i>
+            <div>
+              <strong>Special Languages</strong>
+              <span>Urdu & Sanskrit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media-wrapper">
+        <div class="hero-card-3d">
+          <div class="hero-image-frame">
+            <img src="images/banner.jpg" alt="QEC School Usia Campus Admission Banner" id="heroBannerImg">
+            <div class="image-overlay-glow"></div>
+            <div class="floating-badge badge-top">
+              <i class="fa-solid fa-trophy"></i> Quality Education
+            </div>
+            <div class="floating-badge badge-bottom">
+              <i class="fa-solid fa-location-dot"></i> Usia, Ghazipur
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- School Profile Section -->
+  <section class="profile-section" id="profile">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-school-flag"></i> Institution Profile & Heritage</span>
+        <h2 class="section-title">About <span class="gradient-text">QEC School Usia</span></h2>
+        <p class="section-subtitle">A premier 3-tier educational campus committed to academic excellence, discipline, and moral values in Ghazipur, U.P.</p>
+      </div>
+
+      <!-- Institutional Quick Details Bar -->
+      <div class="profile-meta-chips">
+        <div class="chip-item"><i class="fa-solid fa-award"></i> CBSE Affiliation No: <strong>2134644</strong></div>
+        <div class="chip-item"><i class="fa-solid fa-hand-holding-heart"></i> Managed by: <strong>Sir Syed Educational & Social Welfare Foundation</strong></div>
+        <div class="chip-item"><i class="fa-solid fa-user-shield"></i> Directors: <strong>MD Perwez Khan & Aarif Khan</strong></div>
+        <div class="chip-item"><i class="fa-solid fa-location-dot"></i> Location: <strong>Usia North East Side, Ghazipur</strong></div>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-media-col">
+          <div class="profile-img-card 3d-hover-card" id="campusProfilePhotoBox">
+            <img src="images/campus_building.jpg" alt="QEC School 3-Story Main Campus Building Architecture" class="profile-img">
+            <div class="img-caption-badge">
+              <i class="fa-solid fa-building-columns"></i> 3-Story Modern Campus Building | Usia, Ghazipur
+            </div>
+            <button class="expand-photo-btn" id="openProfileModalBtn" title="View Full Screen Campus Photo">
+              <i class="fa-solid fa-expand"></i> View High-Res Campus
+            </button>
+          </div>
+        </div>
+
+        <div class="profile-info-col">
+          <div class="profile-badge-pill">
+            <i class="fa-solid fa-graduation-cap"></i> MOTIVATION TOWARDS EDUCATION
+          </div>
+          <h3>Modern 3-Tier Campus Built for Holistic Growth</h3>
+          <p>
+            Established under the aegis of <strong>Sir Syed Educational and Social Welfare Foundation</strong>, QEC School Usia provides a nurturing educational ecosystem. Guided by owners <strong>MD Perwez Khan</strong> and <strong>Aarif Khan</strong>, the school combines traditional moral values with contemporary CBSE science, commerce, and humanities curricula.
+          </p>
+
+          <div class="profile-stats-grid">
+            <div class="p-stat-box">
+              <i class="fa-solid fa-building"></i>
+              <h4>3-Story</h4>
+              <span>Spacious Architecture</span>
+            </div>
+            <div class="p-stat-box">
+              <i class="fa-solid fa-users"></i>
+              <h4>Experienced</h4>
+              <span>Dedicated CBSE Faculty</span>
+            </div>
+            <div class="p-stat-box">
+              <i class="fa-solid fa-book-journal-whills"></i>
+              <h4>Streams</h4>
+              <span>Science, Commerce, Arts</span>
+            </div>
+            <div class="p-stat-box">
+              <i class="fa-solid fa-language"></i>
+              <h4>Languages</h4>
+              <span>Urdu & Sanskrit Electives</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campus Infrastructure & Facilities Grid -->
+      <div class="profile-facilities-grid">
+        <div class="facility-card">
+          <div class="facility-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h4>Airy & Sunlit Classrooms</h4>
+          <p>Spacious, well-ventilated learning rooms designed for optimal student comfort, clear visibility, and smart teaching aids.</p>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-icon"><i class="fa-solid fa-flask"></i></div>
+          <h4>Science & Computer Labs</h4>
+          <p>Equipped with modern apparatus for Physics, Chemistry, Biology experiments, and high-speed computer terminals.</p>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-icon"><i class="fa-solid fa-vector-square"></i></div>
+          <h4>Assembly Courtyard</h4>
+          <p>Large brick-paved courtyard for morning assemblies, physical training, sports, and cultural festivals.</p>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>Safety & Security</h4>
+          <p>Comprehensive campus security, wide staircases with protective railings, and multi-floor administrative oversight.</p>
+        </div>
+      </div>
+
+      <!-- Official Logo Emblem & Crest Symbolism Showcase -->
+      <div class="logo-crest-showcase">
+        <div class="logo-showcase-grid">
+          <div class="logo-display-card 3d-hover-card" id="logoPhotoBox">
+            <div class="logo-glow-orbit"></div>
+            <img src="images/logo.png" alt="Official QEC School Usia Crest Logo Emblem" class="crest-logo-img">
+            <button class="expand-photo-btn" id="openLogoModalBtn" title="View Full Screen Official Logo">
+              <i class="fa-solid fa-expand"></i> Inspect Logo Crest
+            </button>
+          </div>
+
+          <div class="logo-details-card">
+            <span class="section-tag"><i class="fa-solid fa-certificate"></i> Institutional Identity</span>
+            <h3>Symbolism of the <span class="gradient-text">QEC School Crest</span></h3>
+            <p>The official seal of <strong>Q.E.C. School, Usia</strong> embodies our core philosophy: <em>"Motivation Towards Education"</em>.</p>
+
+            <div class="symbolism-list">
+              <div class="symbol-item">
+                <div class="symbol-icon sun-bg"><i class="fa-solid fa-sun"></i></div>
+                <div>
+                  <h4>Rising Sun & Radiant Rays</h4>
+                  <p>Symbolizes enlightenment, hope, and awakening minds towards academic and moral progress.</p>
+                </div>
+              </div>
+
+              <div class="symbol-item">
+                <div class="symbol-icon candle-bg"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                <div>
+                  <h4>Central Candle Flame</h4>
+                  <p>Represents guidance, wisdom, and burning passion for learning and discipline.</p>
+                </div>
+              </div>
+
+              <div class="symbol-item">
+                <div class="symbol-icon book-bg"><i class="fa-solid fa-book-open"></i></div>
+                <div>
+                  <h4>Open Book & Writing Quill</h4>
+                  <p>Denotes continuous learning, literature, CBSE curriculum, and scholarly expression in Urdu, Sanskrit, and English.</p>
+                </div>
+              </div>
+
+              <div class="symbol-item">
+                <div class="symbol-icon ring-bg"><i class="fa-solid fa-circle-notch"></i></div>
+                <div>
+                  <h4>Royal Blue Circular Seal</h4>
+                  <p>Encapsulates unity, trust, and the identity of <strong>Q.E.C. School, Usia (Ghazipur)</strong> under Sir Syed Foundation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Logo Photo Modal -->
+  <div class="photo-modal" id="logoModal">
+    <div class="photo-modal-backdrop" id="logoModalBackdrop"></div>
+    <div class="photo-modal-container">
+      <button class="photo-modal-close" id="closeLogoModalBtn">&times;</button>
+      <div class="photo-modal-content text-center logo-modal-padding">
+        <img src="images/logo.png" alt="QEC School Official Logo Emblem Crest" class="modal-logo-preview">
+        <div class="photo-modal-caption">
+          <h3><i class="fa-solid fa-certificate"></i> Official Crest & Seal of Q.E.C. School, Usia</h3>
+          <p>Motivation Towards Education | Affiliation No: 2134644 | Managed by Sir Syed Educational and Social Welfare Foundation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Campus Photo Modal -->
+  <div class="photo-modal" id="campusProfileModal">
+    <div class="photo-modal-backdrop" id="campusModalBackdrop"></div>
+    <div class="photo-modal-container">
+      <button class="photo-modal-close" id="closeCampusModalBtn">&times;</button>
+      <div class="photo-modal-content">
+        <img src="images/campus_building.jpg" alt="QEC School 3-Story Main Building High-Res View">
+        <div class="photo-modal-caption">
+          <h3><i class="fa-solid fa-building-columns"></i> QEC School 3-Tier Main Campus Building</h3>
+          <p>Usia North East Side, Chhoti Nahar, Ghazipur, U.P. (232330) | Managed by Sir Syed Educational and Social Welfare Foundation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Achievements & Felicitation Spotlight Section -->
+  <section class="achievements-section" id="achievements">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-trophy"></i> Student Excellence & Honor Roll</span>
+        <h2 class="section-title">QEC School <span class="gradient-text">Achievements & Felicitation</span></h2>
+        <p class="section-subtitle">Celebrating academic toppers, board merit rankers, scholarship recipients, and moral discipline champions.</p>
+      </div>
+
+      <!-- Key Achievement Statistics Bar -->
+      <div class="achievement-stats-bar">
+        <div class="ach-stat-item">
+          <div class="ach-stat-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="ach-stat-info">
+            <span class="ach-stat-number" data-target="98.5">98.5%</span>
+            <span class="ach-stat-label">CBSE First Division Rate</span>
+          </div>
+        </div>
+        <div class="ach-stat-item">
+          <div class="ach-stat-icon"><i class="fa-solid fa-medal"></i></div>
+          <div class="ach-stat-info">
+            <span class="ach-stat-number" data-target="50">50+</span>
+            <span class="ach-stat-label">Medal & Garland Awardees</span>
+          </div>
+        </div>
+        <div class="ach-stat-item">
+          <div class="ach-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="ach-stat-info">
+            <span class="ach-stat-number" data-target="100">100%</span>
+            <span class="ach-stat-label">Sir Syed Foundation Support</span>
+          </div>
+        </div>
+        <div class="ach-stat-item">
+          <div class="ach-stat-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="ach-stat-info">
+            <span class="ach-stat-number" data-target="15">15+</span>
+            <span class="ach-stat-label">District Competition Trophies</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Achievement Showcase Card -->
+      <div class="achievements-showcase">
+        <div class="achievement-main-card 3d-hover-card">
+          <div class="achievement-image-box" id="achievementPhotoBox">
+            <img src="images/achievements.jpg" alt="QEC School Toppers Felicitation & Awards Ceremony" class="achievement-img">
+            <div class="achievement-overlay-tag">
+              <i class="fa-solid fa-award"></i> Annual Felicitation Ceremony | QEC School Usia
+            </div>
+            <button class="expand-photo-btn" id="openAchievementModalBtn" title="View Full Screen Image">
+              <i class="fa-solid fa-expand"></i> View High-Res Photo
+            </button>
+          </div>
+          <div class="achievement-content-box">
+            <div class="foundation-title-badge">
+              <i class="fa-solid fa-ribbon"></i> SIR SYED EDUCATIONAL & SOCIAL WELFARE FOUNDATION
+            </div>
+            <h3>Grand Felicitation of Board Toppers & Merit Scholars</h3>
+            <p>
+              Under the visionary stewardship of owners <strong>MD Perwez Khan</strong> and <strong>Aarif Khan</strong>, QEC School Usia annually celebrates the outstanding performance of its students. Achievers are honored with traditional marigold garlands, gold medals, custom honor plaques, and comprehensive educational support kits.
+            </p>
+
+            <div class="achievement-pillars-grid">
+              <div class="pillar-box">
+                <i class="fa-solid fa-medal gold-icon"></i>
+                <div>
+                  <h4>CBSE Board Toppers</h4>
+                  <span>Honored with medals, garlands, and gift hampers for exceptional subject scores.</span>
+                </div>
+              </div>
+
+              <div class="pillar-box">
+                <i class="fa-solid fa-hand-holding-hand cyan-icon"></i>
+                <div>
+                  <h4>Sir Syed Merit Grants</h4>
+                  <span>Need-cum-merit financial grants provided by Sir Syed Educational Foundation.</span>
+                </div>
+              </div>
+
+              <div class="pillar-box">
+                <i class="fa-solid fa-shield-halved purple-icon"></i>
+                <div>
+                  <h4>Moral & Value Discipline</h4>
+                  <span>Recognizing students demonstrating exemplary ethics, punctuality, and community leadership.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="achievement-action-row">
+              <a href="#contact" class="liquid-btn liquid-btn-gold">
+                <span class="liquid-btn-bg"></span>
+                <span class="liquid-btn-blobs">
+                  <span class="blob"></span>
+                  <span class="blob"></span>
+                  <span class="blob"></span>
+                </span>
+                <span class="liquid-btn-text">
+                  <i class="fa-solid fa-star"></i> Join Our Wall of Achievers
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievement Categories Cards Grid -->
+      <div class="achievement-cards-grid">
+        <!-- Card 1 -->
+        <div class="ach-card">
+          <div class="ach-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="ach-card-tag">ACADEMIC RANKERS</div>
+          <h3>CBSE Board Excellence</h3>
+          <p>Consistently high pass percentages across Science, Commerce, and Humanities streams with distinction marks in core subjects.</p>
+          <ul class="ach-card-list">
+            <li><i class="fa-solid fa-check"></i> 100% Pass record in Science & Humanities</li>
+            <li><i class="fa-solid fa-check"></i> High distinction rates in Mathematics & Science</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="ach-card">
+          <div class="ach-card-icon"><i class="fa-solid fa-language"></i></div>
+          <div class="ach-card-tag">LANGUAGE MASTERY</div>
+          <h3>Urdu & Sanskrit Honors</h3>
+          <p>Special recognition for proficiency in elective regional and classical languages, maintaining cultural heritage and literary depth.</p>
+          <ul class="ach-card-list">
+            <li><i class="fa-solid fa-check"></i> Top scores in Urdu & Sanskrit CBSE electives</li>
+            <li><i class="fa-solid fa-check"></i> Recitation & Declamation contest trophies</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="ach-card">
+          <div class="ach-card-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="ach-card-tag">CO-CURRICULAR</div>
+          <h3>STEM & Science Olympiads</h3>
+          <p>Active participation and winning positions in regional science exhibitions, math quizzes, and debate competitions in Ghazipur district.</p>
+          <ul class="ach-card-list">
+            <li><i class="fa-solid fa-check"></i> District-level Science Fair awards</li>
+            <li><i class="fa-solid fa-check"></i> Inter-school Quiz Championship winners</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Photo Modal for Achievement Photo -->
+  <div class="photo-modal" id="achievementModal">
+    <div class="photo-modal-backdrop" id="modalBackdrop"></div>
+    <div class="photo-modal-container">
+      <button class="photo-modal-close" id="closeAchievementModalBtn">&times;</button>
+      <div class="photo-modal-content">
+        <img src="images/achievements.jpg" alt="QEC School Topper Felicitation High-Res Photo">
+        <div class="photo-modal-caption">
+          <h3><i class="fa-solid fa-trophy"></i> QEC School Annual Toppers Felicitation Ceremony</h3>
+          <p>Managed by Sir Syed Educational and Social Welfare Foundation | Usia, Ghazipur, U.P.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive 3D Campus Section -->
+  <section class="campus-3d-section" id="campus-3d">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-cubes"></i> WebGL 3D Visualization</span>
+        <h2 class="section-title">Interactive <span class="gradient-text">3D School Campus</span></h2>
+        <p class="section-subtitle">Experience our 3-story architectural building model in real-time 3D. Click hotspots to explore facilities!</p>
+      </div>
+
+      <div class="canvas-wrapper">
+        <div class="canvas-toolbar">
+          <div class="view-presets">
+            <button class="tool-btn active" id="viewFrontBtn"><i class="fa-solid fa-building"></i> Front View</button>
+            <button class="tool-btn" id="viewAerialBtn"><i class="fa-solid fa-plane"></i> Aerial View</button>
+            <button class="tool-btn" id="viewCourtyardBtn"><i class="fa-solid fa-vector-square"></i> Courtyard</button>
+          </div>
+          <div class="tool-actions">
+            <button class="tool-btn" id="toggleRotateBtn" title="Toggle Auto Rotation"><i class="fa-solid fa-rotate"></i> Auto-Rotate</button>
+            <button class="tool-btn" id="toggleLightingBtn" title="Toggle Night Lighting"><i class="fa-solid fa-moon"></i> Night Mode</button>
+            <button class="tool-btn" id="reset3dBtn" title="Reset View"><i class="fa-solid fa-arrows-rotate"></i> Reset</button>
+          </div>
+        </div>
+
+        <!-- Three.js Canvas Container -->
+        <div id="threejs-container">
+          <div class="canvas-loader" id="canvasLoader">
+            <div class="loader-spinner"></div>
+            <span>Rendering 3D Campus Structure...</span>
+          </div>
+        </div>
+
+        <!-- Interactive Hotspot Detail Overlay Card -->
+        <div class="hotspot-detail-card" id="hotspotCard">
+          <button class="close-card" id="closeHotspotBtn">&times;</button>
+          <div class="card-tag" id="hotspotTag">ACADEMICS</div>
+          <h3 id="hotspotTitle">Main School Building</h3>
+          <p id="hotspotDesc">3-story architectural campus equipped with spacious airy classrooms, smart learning boards, and safety railings.</p>
+          <div class="hotspot-meta">
+            <span id="hotspotMeta1"><i class="fa-solid fa-chalkboard-user"></i> Classrooms 1-12</span>
+            <span id="hotspotMeta2"><i class="fa-solid fa-wifi"></i> Smart Equipped</span>
+          </div>
+        </div>
+
+        <div class="canvas-controls-guide">
+          <span><i class="fa-solid fa-computer-mouse"></i> Left Click + Drag to Rotate</span>
+          <span><i class="fa-solid fa-arrows-up-down"></i> Scroll to Zoom</span>
+          <span><i class="fa-solid fa-hand"></i> Right Click + Drag to Pan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Spotlight Section -->
+  <section class="leadership-section" id="leadership">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-user-shield"></i> Visionary Management</span>
+        <h2 class="section-title">Message from <span class="gradient-text">School Leadership</span></h2>
+        <p class="section-subtitle">Dedicated to nurturing knowledge, moral values, and societal growth in Usia, Ghazipur.</p>
+      </div>
+
+      <div class="foundation-banner">
+        <div class="foundation-badge">
+          <i class="fa-solid fa-award"></i> Managed By
+        </div>
+        <h3>Sir Syed Educational and Social Welfare Foundation</h3>
+        <p>Empowering the region through progressive education, equal opportunities, and moral guidance.</p>
+      </div>
+
+      <div class="leadership-grid">
+        <!-- Leader 1 -->
+        <div class="leader-card">
+          <div class="leader-avatar">
+            <div class="avatar-ring"></div>
+            <div class="avatar-icon"><i class="fa-solid fa-user-tie"></i></div>
+          </div>
+          <div class="leader-info">
+            <h3>MD Perwez Khan</h3>
+            <span class="leader-role">Owner & Managing Director</span>
+            <p class="leader-quote">
+              "Our vision at QEC School is to provide every student with access to modern educational infrastructure, strong moral values, and critical thinking abilities to excel in the competitive global landscape."
+            </p>
+            <div class="leader-contacts">
+              <a href="tel:+919044970443" class="contact-chip"><i class="fa-solid fa-phone"></i> Direct Contact</a>
+              <a href="mailto:qecusia@gmail.com" class="contact-chip"><i class="fa-solid fa-envelope"></i> Email Office</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leader 2 -->
+        <div class="leader-card">
+          <div class="leader-avatar">
+            <div class="avatar-ring"></div>
+            <div class="avatar-icon"><i class="fa-solid fa-user-gear"></i></div>
+          </div>
+          <div class="leader-info">
+            <h3>Aarif Khan</h3>
+            <span class="leader-role">Owner & Executive Director</span>
+            <p class="leader-quote">
+              "Education is not just about academic results, but about building discipline, character, and curiosity. We ensure our faculty and facility offer the highest standards for every child's growth."
+            </p>
+            <div class="leader-contacts">
+              <a href="tel:+919044970443" class="contact-chip"><i class="fa-solid fa-phone"></i> Direct Contact</a>
+              <a href="mailto:qecusia@gmail.com" class="contact-chip"><i class="fa-solid fa-envelope"></i> Email Office</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academics & Curriculum Explorer -->
+  <section class="academics-section" id="academics">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-book-bookmark"></i> CBSE Curriculum</span>
+        <h2 class="section-title">Academic <span class="gradient-text">Programs & Streams</span></h2>
+        <p class="section-subtitle">Comprehensive learning from Nursery through Senior Secondary with modern facilities.</p>
+      </div>
+
+      <div class="academic-tabs">
+        <button class="academic-tab active" data-tab="preprimary"><i class="fa-solid fa-child"></i> Pre-Primary</button>
+        <button class="academic-tab" data-tab="primary"><i class="fa-solid fa-school"></i> Primary & Middle</button>
+        <button class="academic-tab" data-tab="highschool"><i class="fa-solid fa-graduation-cap"></i> High School (IX-X)</button>
+        <button class="academic-tab" data-tab="senior"><i class="fa-solid fa-flask"></i> Senior Sec (XI)</button>
+      </div>
+
+      <div class="academic-content-box" id="academicContent">
+        <!-- Dynamic JS content injected here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Amazing Liquid UI Button Showcase & Interactive Playground -->
+  <section class="liquid-demo-section" id="liquid-demo">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-droplet"></i> Fluid Design Engine</span>
+        <h2 class="section-title">Amazing <span class="gradient-text">Liquid UI Buttons</span></h2>
+        <p class="section-subtitle">Experience our custom organic fluid physics SVG morph buttons. Hover, click, and interact with live liquid dynamics!</p>
+      </div>
+
+      <div class="liquid-showcase-grid">
+        <div class="liquid-demo-card">
+          <h3>Primary Fluid CTA Button</h3>
+          <p>Features organic blobbing physics with backdrop glow & magnetic hover.</p>
+          <div class="demo-button-holder">
+            <button class="liquid-btn liquid-btn-lg liquid-btn-cyan">
+              <span class="liquid-btn-bg"></span>
+              <span class="liquid-btn-blobs">
+                <span class="blob"></span>
+                <span class="blob"></span>
+                <span class="blob"></span>
+              </span>
+              <span class="liquid-btn-text">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Primary Liquid Effect
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="liquid-demo-card">
+          <h3>Golden Solar Liquid Button</h3>
+          <p>Warm school gold gradient liquid with high viscosity morphing.</p>
+          <div class="demo-button-holder">
+            <button class="liquid-btn liquid-btn-lg liquid-btn-gold">
+              <span class="liquid-btn-bg"></span>
+              <span class="liquid-btn-blobs">
+                <span class="blob"></span>
+                <span class="blob"></span>
+                <span class="blob"></span>
+              </span>
+              <span class="liquid-btn-text">
+                <i class="fa-solid fa-sun"></i> Solar Gold Liquid
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="liquid-demo-card">
+          <h3>Gooey Ripple Interactive Button</h3>
+          <p>Generates dynamic fluid ripples under cursor position.</p>
+          <div class="demo-button-holder">
+            <button class="liquid-btn liquid-btn-lg liquid-btn-purple" id="rippleLiquidBtn">
+              <span class="liquid-btn-bg"></span>
+              <span class="liquid-btn-blobs">
+                <span class="blob"></span>
+                <span class="blob"></span>
+                <span class="blob"></span>
+              </span>
+              <span class="liquid-btn-text">
+                <i class="fa-solid fa-water"></i> Fluid Ripple Splash
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-images"></i> Visual Moments</span>
+        <h2 class="section-title">Life & Campus <span class="gradient-text">At QEC School</span></h2>
+        <p class="section-subtitle">Highlights of our students, faculty, celebrations, and campus building.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card card-large">
+          <img src="images/banner.jpg" alt="QEC School Admission Banner 2026-27">
+          <div class="gallery-overlay">
+            <span class="gallery-category">CAMPUS BANNER</span>
+            <h4>Admissions Open 2026-27</h4>
+            <p>Nursery to IX & XI Stream Admissions</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/campus_building.jpg" alt="QEC School Main Building">
+          <div class="gallery-overlay">
+            <span class="gallery-category">CAMPUS PROFILE</span>
+            <h4>3-Tier Main Building</h4>
+            <p>Modern Arched Architecture</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/achievements.jpg" alt="QEC Student Toppers Award Felicitation">
+          <div class="gallery-overlay">
+            <span class="gallery-category">ACHIEVEMENTS</span>
+            <h4>Felicitation & Awards</h4>
+            <p>Sir Syed Educational Foundation</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="placeholder-graphic bg-grad-3">
+            <i class="fa-solid fa-microscope"></i>
+            <h4>Science & IT Labs</h4>
+            <span>Modern Practical Learning</span>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="placeholder-graphic bg-grad-4">
+            <i class="fa-solid fa-flag"></i>
+            <h4>School Courtyard</h4>
+            <span>Morning Assemblies & Sports</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Admission Modal Trigger Footer -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-box-grid">
+        <div class="contact-info-col">
+          <span class="section-tag"><i class="fa-solid fa-location-arrow"></i> Get In Touch</span>
+          <h2 class="section-title">Connect with <span class="gradient-text">QEC School</span></h2>
+          <p>We invite parents and prospective students to visit our campus or reach out directly for admissions and queries.</p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>School Address</strong>
+                <p>Usia North East Side, Chhoti Nahar, Ghazipur, U.P. - 232330</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon-box"><i class="fa-solid fa-user-group"></i></div>
+              <div>
+                <strong>Management & Owners</strong>
+                <p>MD Perwez Khan, Aarif Khan</p>
+                <span class="sub-text">Sir Syed Educational & Social Welfare Foundation</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Phone Contact</strong>
+                <p><a href="tel:+919044970443">+91 9044970443</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Email Address</strong>
+                <p><a href="mailto:qecusia@gmail.com">qecusia@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Action Card -->
+        <div class="quick-inquiry-card">
+          <h3><i class="fa-solid fa-paper-plane"></i> Quick Admission Inquiry</h3>
+          <p>Fill out the form below to reserve a campus tour or request admission details for 2026-27.</p>
+          
+          <form id="quickInquiryForm" class="inquiry-form">
+            <div class="form-group">
+              <label for="studentName">Student Name *</label>
+              <input type="text" id="studentName" placeholder="Enter student's full name" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="applyingClass">Class Seeking *</label>
+                <select id="applyingClass" required>
+                  <option value="">Select Class</option>
+                  <option value="Nursery">Nursery / LKG / UKG</option>
+                  <option value="Class 1-5">Class I - V</option>
+                  <option value="Class 6-8">Class VI - VIII</option>
+                  <option value="Class 9-10">Class IX - X</option>
+                  <option value="Class 11 Science">Class XI - Science</option>
+                  <option value="Class 11 Commerce">Class XI - Commerce</option>
+                  <option value="Class 11 Humanities">Class XI - Humanities</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="parentPhone">Phone Number *</label>
+                <input type="tel" id="parentPhone" placeholder="+91 XXXXX XXXXX" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="parentEmail">Email Address</label>
+              <input type="email" id="parentEmail" placeholder="yourname@gmail.com">
+            </div>
+
+            <!-- Liquid Submit Button -->
+            <button type="submit" class="liquid-btn liquid-btn-lg liquid-btn-cyan w-full">
+              <span class="liquid-btn-bg"></span>
+              <span class="liquid-btn-blobs">
+                <span class="blob"></span>
+                <span class="blob"></span>
+                <span class="blob"></span>
+              </span>
+              <span class="liquid-btn-text">
+                <i class="fa-solid fa-paper-plane"></i> Submit Inquiry Now
+              </span>
+            </button>
+          </form>
+
+          <div id="formSuccessMessage" class="form-success-msg hidden">
+            <i class="fa-solid fa-circle-check"></i>
+            <h4>Inquiry Submitted Successfully!</h4>
+            <p>Thank you. QEC School administration will contact you shortly at your provided phone number.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <p>&copy; 2026 QEC School, Usia (Ghazipur). All Rights Reserved. Managed by Sir Syed Educational and Social Welfare Foundation.</p>
+      </div>
+      <div class="footer-right">
+        <span>CBSE Affiliation No: 2134644</span>
+        <span class="sep">|</span>
+        <a href="#hero">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App JavaScript Logic -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
